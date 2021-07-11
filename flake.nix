@@ -10,7 +10,7 @@
       stdenv.mkDerivation {
         name = "hello-${lib.substring 0 8 self.lastModifiedDate}";
         src = self;
-        buildPhase = "gcc -o hello ./hello.c";
+        buildPhase = "clang -o hello ./hello.c";
         installPhase = "mkdir -p $out/bin; install -t $out/bin hello";
       };
 
