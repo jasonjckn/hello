@@ -1,12 +1,12 @@
 {
   description = "A flake for building Hello World";
 
-  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-20.03;
+  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixpkgs-unstable;
 
   outputs = { self, nixpkgs }: {
 
-    defaultPackage.x86_64-linux =
-      with import nixpkgs { system = "x86_64-linux"; };
+    defaultPackage.aarch64-darwin =
+      with import nixpkgs { system = "aarch64-darwin"; };
       stdenv.mkDerivation {
         name = "hello-${lib.substring 0 8 self.lastModifiedDate}";
         src = self;
